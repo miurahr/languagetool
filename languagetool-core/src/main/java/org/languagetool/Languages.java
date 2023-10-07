@@ -103,9 +103,8 @@ public final class Languages {
     List<Language> languages = new ArrayList<>();
     Set<String> languageClassNames = new HashSet<>();
     try {
-      Enumeration<URL> propertyFiles = Language.class.getClassLoader().getResources(PROPERTIES_PATH);
-      while (propertyFiles.hasMoreElements()) {
-        URL url = propertyFiles.nextElement();
+      List<URL> propertyFiles = JLanguageTool.getDataBroker().getAsURLs(PROPERTIES_PATH);
+      for (URL url: propertyFiles) {
         try (InputStream inputStream = url.openStream()) {
           // We want to be able to read properties file with duplicate key, as produced by
           // Maven when merging files:
@@ -137,10 +136,11 @@ public final class Languages {
 
   private static Language createLanguageObjects(URL url, String className) {
     try {
+      String loadClassName = className;
       if (Premium.isPremiumVersion() && hasPremium(className)) {
-        className = className + "Premium";
+        loadClassName = className + "Premium";
       }
-      Class<?> aClass = JLanguageTool.getClassBroker().forName(className);
+      Class<?> aClass = JLanguageTool.getClassBroker().forName(loadClassName);
       Constructor<?> constructor = aClass.getConstructor();
       return (Language) constructor.newInstance();
     } catch (ClassNotFoundException e) {
@@ -377,10 +377,7 @@ public final class Languages {
     // use default variant if available:
     for (Language language : getStaticAndDynamicLanguages()) {
       if (language.getShortCode().equals(locale.getLanguage()) && language.hasVariant()) {
-        Language defaultVariant = language.getDefaultLanguageVariant();
-        if (defaultVariant != null) {
-          return defaultVariant;
-        }
+        return language.getDefaultLanguageVariant();
       }
     }
     // use the first match otherwise (which should be the only match):
