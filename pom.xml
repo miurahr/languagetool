@@ -70,7 +70,7 @@
         <module>languagetool-language-modules/all</module>
         <module>languagetool-gui-commons</module>
         <module>languagetool-commandline</module>
-        <module>languagetool-standalone</module>
+        <!-- <module>languagetool-standalone</module> -->
         <module>languagetool-office-extension</module>
         <module>languagetool-wikipedia</module>
         <module>languagetool-server</module>
