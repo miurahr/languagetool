@@ -1,0 +1,50 @@
+plugins {
+    id("org.languagetool.java-conventions")
+}
+
+dependencies {
+    api(libs.slf4j.api)
+    implementation(project(":language-all"))
+    implementation(project(":languagetool-core"))
+    implementation(project(":languagetool-gui-commons"))
+    implementation(libs.jetbrains.annotations)
+    implementation("at.favre.lib:bcrypt:0.6.0")
+    implementation(libs.logback.classic)
+    implementation("co.elastic.logging:logback-ecs-encoder:1.3.2")
+    implementation(libs.jackson.databind)
+    implementation(libs.commons.cli)
+    implementation(libs.commons.codec)
+    implementation(libs.opentelemetry.api)
+    implementation(libs.opentelemetry.semconv)
+    implementation(libs.grpc.stub)
+    implementation(libs.grpc.netty.shaded)
+    implementation(libs.grpc.protobuf)
+    implementation(libs.commons.lang)
+    implementation(libs.commons.pool)
+    implementation(libs.guava)
+    implementation("io.lettuce:lettuce-core:6.3.1.RELEASE")
+    implementation("io.prometheus:simpleclient_hotspot:0.16.0")
+    implementation("io.prometheus:simpleclient_httpserver:0.16.0")
+    implementation("io.prometheus:simpleclient_guava:0.12.0")
+    implementation("org.mariadb.jdbc:mariadb-java-client:2.7.6")
+    implementation("org.mybatis:mybatis:3.5.9")
+    testImplementation(libs.junit4)
+    testImplementation(project(":languagetool-core"))
+    testImplementation("io.rest-assured:rest-assured:5.1.1")
+    testImplementation("org.hsqldb:hsqldb:2.7.1")
+    testImplementation("org.mockito:mockito-core:3.6.28")
+    testImplementation(project(":language-en"))
+    testImplementation(project(":language-de"))
+    testImplementation(project(":language-ro"))
+    testImplementation(project(":language-pl"))
+    testImplementation(testFixtures(project(":languagetool-core")))
+    testImplementation(libs.logback.classic)
+
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+
+    testCompileOnly(libs.lombok)
+    testAnnotationProcessor(libs.lombok)
+}
+
+description = "LanguageTool embedded HTTP server"
