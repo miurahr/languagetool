@@ -38,6 +38,7 @@ dependencies {
     testImplementation(project(":language-ro"))
     testImplementation(project(":language-pl"))
     testImplementation(testFixtures(project(":languagetool-core")))
+    testImplementation(libs.logback.classic)
 
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)

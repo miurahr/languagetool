@@ -13,8 +13,10 @@ sourceSets {
         java {
             setSrcDirs(listOf("src/fixtures/java"))
         }
+        resources {
+            setSrcDirs(listOf("src/fixtures/resources"))
+        }
     }
-
 }
 
 dependencies {

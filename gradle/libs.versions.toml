@@ -60,6 +60,7 @@ english-pos-dict = {group = "org.languagetool", name = "english-pos-dict", versi
 catalan-pos-dict = {group = "org.softcatala", name = "catalan-pos-dict", version = "2.22"}
 french-pos-dict = { group = "org.languagetool", name = "french-pos-dict", version = "0.5"}
 german-pos-dict = {group = "de.danielnaber", name = "german-pos-dict", version = "1.2.4"}
+jwordsplitter = {group = "de.danielnaber", name = "jwordsplitter", version = "4.7"}
 portuguese-pos-dict = { group = "org.languagetool", name = "portuguese-pos-dict", version = "0.3"}
 spanish-pos-dict = {group = "org.softcatala", name = "spanish-pos-dict", version = "2.2"}
 ga-dicts = {group = "io.github.jimregan", name = "languagetool-ga-dicts", version = "0.02"}
