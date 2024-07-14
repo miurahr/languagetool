@@ -23,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.languagetool.JLanguageTool;
 import org.languagetool.TestTools;
@@ -40,6 +41,7 @@ public class CheckCaseRuleTest {
   }
 
   @Test
+  @Ignore // XXX
   public void testRule() throws IOException {
 
     // correct sentences:

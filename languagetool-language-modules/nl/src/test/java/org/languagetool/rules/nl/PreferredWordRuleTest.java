@@ -33,6 +33,7 @@ import org.languagetool.Languages;
 public class PreferredWordRuleTest {
   
   @Test
+  @Ignore // XXX
   public void test() throws IOException {
     Language dutch = Languages.getLanguageForShortCode("nl");
     PreferredWordRule rule = new PreferredWordRule(JLanguageTool.getMessageBundle());

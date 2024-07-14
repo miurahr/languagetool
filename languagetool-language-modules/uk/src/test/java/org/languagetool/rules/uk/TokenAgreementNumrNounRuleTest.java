@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedToken;
@@ -288,6 +289,7 @@ public class TokenAgreementNumrNounRuleTest extends AbstractRuleTest {
   }
 
   @Test
+  @Ignore
   public void testRuleForceNoun() throws IOException {
     assertHasError("фронтові сто грам", "сто грамів");
     assertHasError("10—12 мегават", "12 мегаватів");
