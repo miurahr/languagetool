@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(libs.jetbrains.annotations)
-    implementation("com.github.lucene-gosen:lucene-gosen:6.2.1:ipadic") {
+    implementation(variantOf(libs.lucene.gosen){ classifier("ipadic") }) {
         exclude(group = "com.ibm.icu", module = "icu4j")
         exclude(group = "org.apache.lucene", module = "lucene-analyzers")
         exclude(group = "org.apache.lucene", module = "lucene-analyzers-common")

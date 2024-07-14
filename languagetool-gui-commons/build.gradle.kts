@@ -8,6 +8,7 @@ dependencies {
     implementation(libs.commons.lang)
     testImplementation(libs.junit4)
     testImplementation(testFixtures(project(":languagetool-core")))
+    testImplementation(libs.logback.classic)
 }
 
 description = "LanguageTool common GUI classes"

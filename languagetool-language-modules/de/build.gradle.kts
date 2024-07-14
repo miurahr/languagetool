@@ -5,7 +5,7 @@ plugins {
 dependencies {
     implementation(libs.jetbrains.annotations)
     implementation(libs.german.pos.dict)
-    implementation("de.danielnaber:jwordsplitter:4.7")
+    implementation(libs.jwordsplitter)
     implementation(libs.openregex)
     implementation(libs.guava)
     implementation(libs.trove4j)
