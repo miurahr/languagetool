@@ -9,8 +9,8 @@ dependencies {
     implementation(libs.commons.lang)
     testImplementation(project(":languagetool-core"))
     testImplementation(libs.junit4)
-    testImplementation(libs.logback.classic)
     testImplementation(testFixtures(project(":languagetool-core")))
+    testImplementation(libs.logback.classic)
 }
 
 description = "Ukrainian module for LanguageTool"
