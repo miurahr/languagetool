@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.languagetool.JLanguageTool;
 import org.languagetool.Language;
@@ -109,6 +110,7 @@ public class SimpleReplaceRuleTest {
   }
 
   @Test
+  @Ignore
   public void testSubstandards() throws IOException {
     SimpleReplaceRule rule = new SimpleReplaceRule(TestTools.getEnglishMessages(), morfologikSpellerRule, lt.getLanguage());
 

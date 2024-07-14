@@ -15,3 +15,9 @@ dependencies {
 }
 
 description = "Dutch module for LanguageTool"
+
+tasks.withType<Test> {
+  minHeapSize = "512m"
+  maxHeapSize = "2048m"
+  jvmArgs = listOf("-XX:MaxMetaspaceSize=512m")
+}
