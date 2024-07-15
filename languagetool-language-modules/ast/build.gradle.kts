@@ -13,6 +13,7 @@ dependencies {
     implementation(libs.jetbrains.annotations)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Asturian module for LanguageTool"

@@ -10,6 +10,7 @@ dependencies {
     implementation(libs.hankcs)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Dutch module for LanguageTool"

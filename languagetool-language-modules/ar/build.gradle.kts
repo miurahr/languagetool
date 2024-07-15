@@ -12,6 +12,7 @@ dependencies {
     implementation(libs.morfologik.stemming)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Arabic module for LanguageTool"

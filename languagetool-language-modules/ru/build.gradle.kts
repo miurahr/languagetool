@@ -11,6 +11,7 @@ dependencies {
     implementation(libs.trove4j)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Russian module for LanguageTool"

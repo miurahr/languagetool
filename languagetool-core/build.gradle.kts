@@ -8,6 +8,15 @@ plugins {
     id("org.languagetool.java-conventions")
 }
 
+sourceSets {
+    testFixtures {
+        java {
+            setSrcDirs(listOf("src/fixtures/java"))
+        }
+    }
+
+}
+
 dependencies {
     api(libs.jaxb.api)
     api(libs.slf4j.api)
@@ -50,10 +59,21 @@ dependencies {
     implementation(libs.indriya)
     implementation(libs.openregex)
     implementation("io.github.java-diff-utils:java-diff-utils:4.12")
+    testFixturesApi(project(":languagetool-core"))
+    testFixturesApi(libs.junit4)
+    testFixturesImplementation(libs.morfologik.stemming)
+    testFixturesImplementation(libs.morfologik.builders)
+    testFixturesImplementation(libs.jetbrains.annotations)
+    testFixturesImplementation(libs.resilience4j.circuitbreaker)
+    testFixturesImplementation(libs.resilience4j.micrometer)
     testImplementation(libs.logback.classic)
     testImplementation(libs.junit4)
     testImplementation("org.awaitility:awaitility:4.1.1")
     testImplementation("org.mockito:mockito-core:3.6.28")
+    testImplementation(testFixtures(project(":languagetool-core")))
+
+    testFixturesCompileOnly(libs.lombok)
+    testFixturesAnnotationProcessor(libs.lombok)
 
     compileOnly(libs.lombok)
 	annotationProcessor(libs.lombok)
@@ -63,10 +83,3 @@ dependencies {
 }
 
 description = "LanguageTool Style and Grammar Checker Core"
-
-val testsJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("tests")
-    from(sourceSets["test"].output)
-}
-
-(publishing.publications["maven"] as MavenPublication).artifact(testsJar)
