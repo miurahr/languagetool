@@ -10,6 +10,7 @@ dependencies {
     implementation(libs.catalan.pos.dict)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Catalan module for LanguageTool"

@@ -10,6 +10,7 @@ dependencies {
     implementation(libs.jackson.databind)
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "French module for LanguageTool"

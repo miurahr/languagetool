@@ -16,6 +16,7 @@ dependencies {
     testImplementation(libs.morfologik.fsa)
     testImplementation(libs.morfologik.builders)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Simple German module for LanguageTool"

@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":languagetool-core"))
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Japanese module for LanguageTool"

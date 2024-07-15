@@ -8,6 +8,7 @@ dependencies {
     implementation(project(":languagetool-core"))
     testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
+    testImplementation(testFixtures(project(":languagetool-core")))
 }
 
 description = "Irish module for LanguageTool"
