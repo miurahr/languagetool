@@ -1,4 +1,30 @@
-## LanguageTool
+# LanguageTool
+
+This is a forked version of LanguageTool for OmegaT project.
+
+You can reach published package at MavenCentral with
+`org.omegat:languagetool-core:6.3-omt1.0` and
+`org.omegat:language-all:6.3-omt1.0` etc.
+
+## Version
+
+Current version is `6.3-omt1.0`
+
+## Changes from original
+
+- Bump Lucene version 8.11.3
+- Build with Java 11
+- Bump other dependencies
+    - logback-classic@1.3.14 for security
+    - json@20231013 for security
+    - commons_validator@1.9.0
+    - commons_lang3@3.14.0
+    - icu4j@72.1 and allow 70-73.2
+    - slf4j@2.0.7 and allow 2.0.x
+    - guava@32.1.2-jre
+    - lucene-gosen@8.11.0
+
+## What is LanguageTool
 
 **LanguageTool** is an Open Source proofreading software for English, Spanish, French, German,
 Portuguese, Polish, Dutch, and [more than 20 other languages](https://languagetool.org/languages/).
