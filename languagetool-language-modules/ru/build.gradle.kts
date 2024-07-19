@@ -4,7 +4,8 @@ plugins {
 
 dependencies {
     implementation(libs.jetbrains.annotations)
-    implementation(libs.openregex)
+    implementation(libs.openregex) { exclude(module = "guava") }
+    implementation(libs.guava)
     implementation(project(":languagetool-core"))
     implementation(libs.commons.lang)
     implementation(libs.hankcs)

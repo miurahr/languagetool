@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":languagetool-core"))
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit4)
     testImplementation(project(":languagetool-core"))
     testImplementation(testFixtures(project(":languagetool-core")))
     testImplementation(libs.logback.classic)

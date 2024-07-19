@@ -3,11 +3,6 @@ plugins {
     id("org.languagetool.java-conventions")
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
     implementation(project(":language-ar"))
     implementation(project(":language-ast"))
@@ -40,10 +35,6 @@ dependencies {
     implementation(project(":language-tl"))
     implementation(project(":language-uk"))
     implementation(project(":language-zh"))
-    // language-crh requires JRE 17
-    // implementation(project(":language-crh"))
-    testImplementation(libs.junit4)
-    testImplementation(project(":languagetool-core"))
 }
 
 description = "All language modules for LanguageTool"
