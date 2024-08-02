@@ -61,6 +61,7 @@ public class ArabicSynthesizer extends BaseSynthesizer {
   public static final ArabicSynthesizer INSTANCE = new ArabicSynthesizer();
 
   /** @deprecated use {@link #INSTANCE} */
+  @Deprecated
   public ArabicSynthesizer(Language lang) {
     this();
   }
