@@ -3,8 +3,8 @@
 This is a forked version of LanguageTool for OmegaT project.
 
 You can reach published package at MavenCentral with
-`org.omegat:languagetool-core:6.3-omt1.0` and
-`org.omegat:language-all:6.3-omt1.0` etc.
+`org.omegat.lucene:languagetool-core:6.3-omt1.0` and
+`org.omegat.lucene:language-all:6.3-omt1.0` etc.
 
 ## Version
 
@@ -23,6 +23,7 @@ Current version is `6.3-omt1.0`
     - slf4j@2.0.7 and allow 2.0.x
     - guava@32.1.2-jre
     - lucene-gosen@8.11.0
+    - jetbrains annotations@23.0.0
 
 ## What is LanguageTool
 
