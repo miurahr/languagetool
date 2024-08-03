@@ -231,7 +231,8 @@ public abstract class MorfologikSpellerRule extends SpellingCheckRule {
       } else {
         // should not happen, as we only configure this rule (or rather its subclasses)
         // when we have the resources:
-        throw new RuntimeException("Cannot find dictionary file " + getFileName());
+        // throw new RuntimeException("Cannot find dictionary file " + getFileName());
+        return true;
       }
     }
     return false;
