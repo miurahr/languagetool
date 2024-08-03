@@ -80,3 +80,9 @@ dependencies {
 }
 
 description = "LanguageTool Style and Grammar Checker Core"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.core")
+    }
+}

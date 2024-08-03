@@ -21,3 +21,9 @@ tasks.withType<Test> {
   maxHeapSize = "2048m"
   jvmArgs = listOf("-XX:MaxMetaspaceSize=512m")
 }
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.language.nl")
+    }
+}

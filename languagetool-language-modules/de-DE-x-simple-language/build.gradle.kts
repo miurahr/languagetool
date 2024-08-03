@@ -15,3 +15,9 @@ dependencies {
 }
 
 description = "Simple German module for LanguageTool"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.language.de-DE-x-simple-language")
+    }
+}

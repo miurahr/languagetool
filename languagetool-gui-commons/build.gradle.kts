@@ -11,3 +11,9 @@ dependencies {
 }
 
 description = "LanguageTool common GUI classes"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.gui-common")
+    }
+}

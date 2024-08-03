@@ -54,3 +54,9 @@ tasks.withType<Test> {
         project.hasProperty("serverTests")
     }
 }
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.server")
+    }
+}

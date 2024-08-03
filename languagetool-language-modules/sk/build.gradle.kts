@@ -12,3 +12,9 @@ dependencies {
 }
 
 description = "Slovak module for LanguageTool"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.language.sk")
+    }
+}

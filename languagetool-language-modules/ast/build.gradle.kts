@@ -12,3 +12,9 @@ dependencies {
 }
 
 description = "Asturian module for LanguageTool"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.language.ast")
+    }
+}

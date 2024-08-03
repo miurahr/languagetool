@@ -12,3 +12,9 @@ dependencies {
 }
 
 description = "Khmer module for LanguageTool"
+
+tasks.jar {
+    manifest {
+        attributes("Automatic-Module-Name" to "org.languagetool.language.km")
+    }
+}
