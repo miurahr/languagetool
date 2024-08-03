@@ -3,15 +3,16 @@
 This is a forked version of LanguageTool for OmegaT project.
 
 You can reach published package at MavenCentral with
-`org.omegat:languagetool-core:6.3-omt1.0` and
-`org.omegat:language-all:6.3-omt1.0` etc.
+`org.omegat.lucene:languagetool-core:6.3-omt2.0` and
+`org.omegat.lucene:language-all:6.3-omt2.0` etc.
 
 ## Version
 
-Current version is `6.3-omt1.0`
+Current version is `6.3-omt2.0`
 
 ## Changes from original
 
+- Move language-* module packages to "o.l.l.(lang)" to avoid package split to support JPMS.
 - Bump Lucene version 8.11.3
 - Build with Java 11
 - Bump other dependencies
@@ -23,6 +24,7 @@ Current version is `6.3-omt1.0`
     - slf4j@2.0.7 and allow 2.0.x
     - guava@32.1.2-jre
     - lucene-gosen@8.11.0
+    - JetBrains Annotations 23.0.0
 
 ## What is LanguageTool
 

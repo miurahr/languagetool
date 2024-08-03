@@ -9,7 +9,7 @@ repositories {
 }
 
 group = "org.omegat.lucene"
-version = "6.3-omt1.0"
+version = "6.3-omt2.0"
 
 java {
     toolchain {
