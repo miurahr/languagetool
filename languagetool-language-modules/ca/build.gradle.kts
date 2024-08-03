@@ -15,3 +15,9 @@ dependencies {
 }
 
 description = "Catalan module for LanguageTool"
+
+tasks.withType<Test> {
+    onlyIf {
+        project.hasProperty("caTests")
+    }
+}

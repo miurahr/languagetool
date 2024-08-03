@@ -49,3 +49,9 @@ dependencies {
 }
 
 description = "LanguageTool embedded HTTP server"
+
+tasks.withType<Test> {
+    onlyIf {
+        project.hasProperty("serverTests")
+    }
+}
