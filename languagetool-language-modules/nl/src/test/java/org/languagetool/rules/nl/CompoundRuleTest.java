@@ -24,7 +24,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.languagetool.JLanguageTool;
-import org.languagetool.language.Dutch;
+import org.languagetool.language.nl.Dutch;
 import org.languagetool.rules.AbstractCompoundRuleTest;
 
 public class CompoundRuleTest extends AbstractCompoundRuleTest {
