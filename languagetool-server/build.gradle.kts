@@ -33,6 +33,7 @@ dependencies {
     testImplementation(libs.rest.assured)
     testImplementation(libs.hsqldb)
     testImplementation(libs.mockito.core)
+    testImplementation(libs.okhttp)
     testImplementation(project(":language-en"))
     testImplementation(project(":language-de"))
     testImplementation(project(":language-ro"))
