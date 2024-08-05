@@ -10,6 +10,8 @@ dependencies {
     implementation(project(":languagetool-tools"))
     implementation(libs.jetbrains.annotations)
     implementation(libs.commons.collections4)
+    implementation(libs.lucene.core)
+    implementation(project(":language-en"))
     runtimeOnly(project(":language-all"))
     testImplementation(libs.junit4)
     testImplementation(libs.mockito.core)

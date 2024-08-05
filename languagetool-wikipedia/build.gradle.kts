@@ -15,12 +15,15 @@ dependencies {
     implementation(libs.swc.engine)
     implementation(libs.swc.parser.lazy)
     implementation(libs.tukaani.xz)
+    implementation(libs.morfologik.stemming)
     runtimeOnly(libs.logback.classic)
     runtimeOnly(project(":language-all"))
     testImplementation(libs.junit4)
     testImplementation(testFixtures(project(":languagetool-core")))
     testImplementation(libs.lucene.test.framework)
-    testImplementation(libs.logback.classic)
+    testRuntimeOnly(libs.logback.classic)
+    testImplementation(project(":language-de"))
+    testImplementation(project(":language-en"))
 }
 
 description = "LanguageTool wikipedia tools"
