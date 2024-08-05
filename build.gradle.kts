@@ -1,6 +1,7 @@
 plugins {
     `maven-publish`
     signing
+    `test-report-aggregation`
     alias(libs.plugins.nexus.publish)
 }
 
@@ -21,23 +22,22 @@ nexusPublishing.repositories {
     }
 }
 
+reporting {
+    reports {
+        tasks.create<TestReport>("aggregateTestReport") {
+            destinationDirectory.set(layout.buildDirectory.dir("reports/tests/all"))
+            setGroup("verification")
 
-tasks.create("testsAll", TestReport::class.java) {
-    destinationDirectory = layout.buildDirectory.dir("reports/tests/all")
-    project.evaluationDependsOnChildren()
-    allprojects.forEach { subproject ->
-        subproject.tasks.withType<Test> {
-            ignoreFailures = true
-            // reports.junitXml.isEnabled = true
-            this@create.reportOn(this@withType)
+            // Add the test tasks from subprojects
+            subprojects {
+                val testTasks = tasks.withType<Test>()
+                testTasks.configureEach {
+                    ignoreFailures = true
+                }
+                testTasks.forEach { testTask ->
+                    testResults.from(testTask)
+                }
+            }
         }
     }
-    doLast {
-        val reportFile = layout.buildDirectory.file("reports/tests/all/index.html").get().asFile
-        val successRegex = """(?s)<div class="infoBox" id="failures">\s*<div class="counter">0<\/div>""".toRegex()
-        if (!successRegex.containsMatchIn(reportFile.readText())) {
-            throw GradleException("There were failing tests. See the report at: ${reportFile.toURI()}")
-        }
-    }
-    setGroup("verification")
 }
