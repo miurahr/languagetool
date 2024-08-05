@@ -2,6 +2,9 @@
 junit = "4.13.2"
 commons_cli = "1.5.0"
 commons_codec = "1.15"
+commons_collections4 = "4.4"
+commons_compress = "1.26.0"
+commons_io = "2.11.0"
 commons_lang = "3.14.0"
 commons_pool = "2.11.1"
 commons_logging = "1.2"
@@ -36,11 +39,15 @@ awaitility = "4.1.1"
 emoji = "5.1.1"
 loomchild = "2.0.1"
 okhttp = "4.12.0"
+xz = "1.10"
 
 [libraries]
 # commons
 commons-cli = {group = "commons-cli", name = "commons-cli", version.ref = "commons_cli"}
 commons-codec = {group = "commons-codec", name = "commons-codec",  version.ref = "commons_codec"}
+commons-collections4 = {group = "org.apache.commons", name = "commons-collections4", version.ref = "commons_collections4"}
+commons-compress = {group = "org.apache.commons", name = "commons-compress", version.ref = "commons_compress"}
+commons-io = {group = "commons-io", name = "commons-io", version.ref = "commons_io"}
 commons-lang = {group = "org.apache.commons", name = "commons-lang3", version.ref = "commons_lang"}
 commons-pool = {group = "org.apache.commons", name = "commons-pool2", version.ref = "commons_pool"}
 commons-logging = {group = "commons-logging", name = "commons-logging", version.ref = "commons_logging"}
@@ -98,13 +105,19 @@ morfologik-builders = {group = "org.carrot2", name = "morfologik-fsa-builders", 
 morfologik-speller = {group = "org.carrot2", name = "morfologik-speller", version.ref = "morfologik"}
 morfologik-stemming = {group = "org.carrot2", name = "morfologik-stemming", version.ref = "morfologik"}
 morfologik-tools = {group = "org.carrot2", name = "morfologik-tools", version.ref = "morfologik"}
-lucene-backward-codecs = {group = "org.apache.lucene", name = "lucene-backward-codecs", version.ref = "lucene"}
-lucene-core = {group = "org.apache.lucene", name = "lucene-core", version.ref = "lucene"}
-lucene-gosen = {group = "org.omegat.lucene", name = "lucene-gosen", version.ref = "lucene_gosen"}
 opennlp-chunk-models = {group = "edu.washington.cs.knowitall", name ="opennlp-chunk-models", version.ref = "opennlp"}
 opennlp-postag-models = {group = "edu.washington.cs.knowitall", name ="opennlp-postag-models", version.ref = "opennlp"}
 opennlp-tokenize-models = {group = "edu.washington.cs.knowitall", name ="opennlp-tokenize-models", version.ref = "opennlp"}
 opennlp-tools = {group = "org.apache.opennlp", name = "opennlp-tools", version.ref = "opennlp_tools"}
+
+# lucene
+lucene-backward-codecs = {group = "org.apache.lucene", name = "lucene-backward-codecs", version.ref = "lucene"}
+lucene-core = {group = "org.apache.lucene", name = "lucene-core", version.ref = "lucene"}
+lucene-gosen = {group = "org.omegat.lucene", name = "lucene-gosen", version.ref = "lucene_gosen"}
+lucene-analyzers-common = {group = "org.apache.lucene", name = "lucene-analyzers-common", version.ref = "lucene"}
+lucene-queries = {group = "org.apache.lucene", name = "lucene-queries", version.ref = "lucene"}
+lucene-sandbox = {group = "org.apache.lucene", name = "lucene-sandbox", version.ref = "lucene"}
+lucene-test-framework = {group = "org.apache.lucene", name = "lucene-test-framework", version.ref = "lucene"}
 
 # languagetool-core
 javax-activation-api = {group = "javax.activation", name = "javax.activation-api", version.ref = "javax_activation_api"}
@@ -137,6 +150,11 @@ hsqldb = {group = "org.hsqldb", name = "hsqldb", version = "2.7.1"}
 lettuce = {group = "io.lettuce", name = "lettuce-core", version = "6.3.1.RELEASE"}
 bcrypt = {group = "at.favre.lib", name = "bcrypt", version = "0.6.0"}
 okhttp = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp"}
+
+# wikipedia
+swc-engine = {group = "org.sweble.wikitext", name = "swc-engine", version = "3.1.9"}
+swc-parser-lazy = {group = "org.sweble.wikitext", name = "swc-parser-lazy", version = "3.1.9"}
+tukaani-xz = {group = "org.tukaani", name = "xz", version.ref = "xz"}
 
 [plugins]
 nexus-publish = {id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0"}
