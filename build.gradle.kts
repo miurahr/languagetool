@@ -27,15 +27,14 @@ nexusPublishing.repositories {
     }
 }
 
-
-tasks.create("testsAll", TestReport::class.java) {
+tasks.create<TestReport>("testsAll") {
     destinationDirectory = layout.buildDirectory.dir("reports/tests/all")
     project.evaluationDependsOnChildren()
-    allprojects.forEach { subproject ->
-        subproject.tasks.withType<Test> {
+    allprojects {
+        tasks.withType<Test> {
             ignoreFailures = true
-            // reports.junitXml.isEnabled = true
-            this@create.reportOn(this@withType)
+            finalizedBy(this@create)
+            //this@create.reportOn(this@withType)
         }
     }
     doLast {
