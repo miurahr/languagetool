@@ -4,6 +4,7 @@ commons_cli = "1.5.0"
 commons_codec = "1.15"
 commons_collections4 = "4.4"
 commons_compress = "1.26.0"
+commons_csv = "1.9.0"
 commons_io = "2.11.0"
 commons_lang = "3.14.0"
 commons_pool = "2.11.1"
@@ -47,6 +48,7 @@ commons-cli = {group = "commons-cli", name = "commons-cli", version.ref = "commo
 commons-codec = {group = "commons-codec", name = "commons-codec",  version.ref = "commons_codec"}
 commons-collections4 = {group = "org.apache.commons", name = "commons-collections4", version.ref = "commons_collections4"}
 commons-compress = {group = "org.apache.commons", name = "commons-compress", version.ref = "commons_compress"}
+commons-csv = {group = "org.apache.commons", name = "commons-csv", version.ref = "commons_csv"}
 commons-io = {group = "commons-io", name = "commons-io", version.ref = "commons_io"}
 commons-lang = {group = "org.apache.commons", name = "commons-lang3", version.ref = "commons_lang"}
 commons-pool = {group = "org.apache.commons", name = "commons-pool2", version.ref = "commons_pool"}
