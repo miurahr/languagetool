@@ -43,6 +43,7 @@ reporting {
                 testTasks.forEach { testTask ->
                     testResults.from(testTask)
                 }
+                dependsOn(testTasks)
             }
         }
     }

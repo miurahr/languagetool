@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    `jacoco`
 }
 
 repositories {
@@ -42,4 +43,13 @@ tasks.withType<Test> {
     minHeapSize = "512m"
     maxHeapSize = "1024m"
     jvmArgs = listOf("-XX:MaxMetaspaceSize=512m")
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+    }
+    dependsOn(tasks.test)
 }
