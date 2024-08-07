@@ -48,3 +48,19 @@ reporting {
         }
     }
 }
+
+tasks.register("checkAggregatedTestReport") {
+    dependsOn("aggregateTestReport")
+    setGroup("verification")
+    doLast {
+        val reportFile = layout.buildDirectory.file("reports/tests/all/index.html").get().asFile
+        val successRegex = """(?s)<div class="infoBox" id="failures">\s*<div class="counter">0<\/div>""".toRegex()
+        if (!successRegex.containsMatchIn(reportFile.readText())) {
+            throw GradleException("There were failing tests. See the report at: ${reportFile.toURI()}")
+        }
+    }
+}
+
+tasks.named("check").configure {
+    dependsOn("checkAggregatedTestReport")
+}
