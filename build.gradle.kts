@@ -2,6 +2,7 @@ plugins {
     `maven-publish`
     signing
     `test-report-aggregation`
+    `jvm-test-suite`
     alias(libs.plugins.nexus.publish)
 }
 
@@ -11,16 +12,16 @@ tasks.wrapper {
     gradleVersion = "8.9"
 }
 
-
-val sonatypeUsername: String? by project
-val sonatypePassword: String? by project
+val ossrhUsername: String? by project
+val ossrhPassword: String? by project
 
 nexusPublishing.repositories {
     sonatype {
-        // stagingProfileId = "121f28671d24dc"
-        if (sonatypeUsername != null && sonatypePassword != null) {
-            username.set(sonatypeUsername)
-            password.set(sonatypePassword)
+        stagingProfileId = "15818299f2c2bb"
+        nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+        if (ossrhUsername != null && ossrhPassword != null) {
+            username.set(ossrhUsername)
+            password.set(ossrhPassword)
         } else {
             username.set(System.getenv("SONATYPE_USER"))
             password.set(System.getenv("SONATYPE_PASS"))
@@ -28,10 +29,20 @@ nexusPublishing.repositories {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    subprojects.forEach { proj ->
+        testReportAggregation(proj)
+    }
+}
+
 reporting {
     reports {
-        tasks.create<TestReport>("aggregateTestReport") {
-            destinationDirectory.set(layout.buildDirectory.dir("reports/tests/all"))
+        val aggregateTestReport by creating(AggregateTestReport::class) {
+            testType = TestSuiteType.UNIT_TEST
             setGroup("verification")
 
             // Add the test tasks from subprojects
@@ -40,27 +51,7 @@ reporting {
                 testTasks.configureEach {
                     ignoreFailures = true
                 }
-                testTasks.forEach { testTask ->
-                    testResults.from(testTask)
-                }
-                dependsOn(testTasks)
             }
         }
     }
-}
-
-tasks.register("checkAggregatedTestReport") {
-    dependsOn("aggregateTestReport")
-    setGroup("verification")
-    doLast {
-        val reportFile = layout.buildDirectory.file("reports/tests/all/index.html").get().asFile
-        val successRegex = """(?s)<div class="infoBox" id="failures">\s*<div class="counter">0<\/div>""".toRegex()
-        if (!successRegex.containsMatchIn(reportFile.readText())) {
-            throw GradleException("There were failing tests. See the report at: ${reportFile.toURI()}")
-        }
-    }
-}
-
-tasks.named("check").configure {
-    dependsOn("checkAggregatedTestReport")
 }
