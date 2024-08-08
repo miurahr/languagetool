@@ -2,6 +2,7 @@ plugins {
     `maven-publish`
     signing
     `test-report-aggregation`
+    `jvm-test-suite`
     alias(libs.plugins.nexus.publish)
 }
 
@@ -22,10 +23,20 @@ nexusPublishing.repositories {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    subprojects.forEach { proj ->
+        testReportAggregation(proj)
+    }
+}
+
 reporting {
     reports {
-        tasks.create<TestReport>("aggregateTestReport") {
-            destinationDirectory.set(layout.buildDirectory.dir("reports/tests/all"))
+        val aggregateTestReport by creating(AggregateTestReport::class) {
+            testType = TestSuiteType.UNIT_TEST
             setGroup("verification")
 
             // Add the test tasks from subprojects
@@ -33,9 +44,6 @@ reporting {
                 val testTasks = tasks.withType<Test>()
                 testTasks.configureEach {
                     ignoreFailures = true
-                }
-                testTasks.forEach { testTask ->
-                    testResults.from(testTask)
                 }
             }
         }
