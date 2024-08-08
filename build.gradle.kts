@@ -1,9 +1,14 @@
 plugins {
+    java
     `maven-publish`
     signing
     `test-report-aggregation`
-    `jvm-test-suite`
     alias(libs.plugins.nexus.publish)
+}
+
+tasks.wrapper {
+    distributionType = Wrapper.DistributionType.BIN
+    gradleVersion = "8.9"
 }
 
 val ossrhUsername: String? by project
