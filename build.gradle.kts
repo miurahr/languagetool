@@ -1,8 +1,8 @@
 plugins {
+    java
     `maven-publish`
     signing
     `test-report-aggregation`
-    `jvm-test-suite`
     alias(libs.plugins.nexus.publish)
 }
 
