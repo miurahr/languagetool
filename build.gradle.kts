@@ -2,6 +2,7 @@ plugins {
     java
     `maven-publish`
     signing
+    distribution
     `test-report-aggregation`
     alias(libs.plugins.nexus.publish)
 }
@@ -29,6 +30,8 @@ nexusPublishing.repositories {
     }
 }
 
+val wholeProjects by configurations.creating
+
 repositories {
     mavenCentral()
 }
@@ -36,6 +39,7 @@ repositories {
 dependencies {
     subprojects.forEach { proj ->
         testReportAggregation(proj)
+        wholeProjects(proj)
     }
 }
 
@@ -52,6 +56,14 @@ reporting {
                     ignoreFailures = true
                 }
             }
+        }
+    }
+}
+
+distributions {
+    main {
+        contents {
+            from(wholeProjects)
         }
     }
 }
