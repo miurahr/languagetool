@@ -64,6 +64,7 @@ distributions {
     main {
         contents {
             from(wholeProjects)
+            into("libs")
         }
     }
 }
