@@ -1,5 +1,10 @@
 plugins {
     id("org.languagetool.java-conventions")
+    application
+}
+
+application {
+    mainClass = "org.languagetool.server.HTTPServer"
 }
 
 dependencies {
