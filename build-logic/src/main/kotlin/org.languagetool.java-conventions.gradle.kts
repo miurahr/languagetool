@@ -1,14 +1,14 @@
 plugins {
     `java-library`
     `maven-publish`
-    `jacoco`
+    jacoco
 }
 
 repositories {
     mavenCentral()
 }
 
-group = "org.omegat"
+group = "org.omegat.lucene"
 version = "6.5-omt1.0"
 
 java {
