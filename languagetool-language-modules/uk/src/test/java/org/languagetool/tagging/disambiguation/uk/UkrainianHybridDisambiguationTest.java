@@ -394,9 +394,9 @@ public class UkrainianHybridDisambiguationTest {
       +" преподобний/[преподобний]adj:m:v_kly|преподобний/[преподобний]adj:m:v_naz|преподобний/[преподобний]adj:m:v_zna:rinanim"
       +"|преподобний/[преподобний]noun:anim:m:v_kly|преподобний/[преподобний]noun:anim:m:v_naz"
       +"  /[null]null"
-      +" С./[null]noninf:abbr"
+      +" С./[null]noninfl:abbr"
       +"  /[null]null"
-      +" С./[null]noninf:abbr"
+      +" С./[null]noninfl:abbr"
       +"  /[null]null"
       +" Мокітімі/[null]null ,/[null]null  /[null]null"
       +" був/[бути]verb:imperf:past:m  /[null]null чудовою/[чудовий]adj:f:v_oru:compb  /[null]null людиною/[людина]noun:anim:f:v_oru ./[null]null",
@@ -404,12 +404,12 @@ public class UkrainianHybridDisambiguationTest {
     
     TestTools.myAssert("Є. Тахкк",
         "/[null]SENT_START"
-          + " Є./[null]noninf:abbr  /[null]null Тахкк/[null]null",
+          + " Є./[null]noninfl:abbr  /[null]null Тахкк/[null]null",
         tokenizer, sentenceTokenizer, tagger, disambiguator);
     
     TestTools.myAssert("В. Іпа",
         "/[null]SENT_START"
-          + " В./[null]noninf:abbr  /[null]null Іпа/[null]null",
+          + " В./[null]noninfl:abbr  /[null]null Іпа/[null]null",
         tokenizer, sentenceTokenizer, tagger, disambiguator);
 
     TestTools.myAssert("С. Гокінґ", 
@@ -641,6 +641,15 @@ public class UkrainianHybridDisambiguationTest {
 //        + "два/[два]numr:p:v_naz|два/[два]numr:p:v_zna  "
 //        + "/[null]null Рима/[Рим]noun:inanim:m:v_rod:prop:geo:xp1|Рима/[рим]noun:inanim:m:v_rod|Рима/[рима]noun:inanim:f:v_naz",
 //        tokenizer, sentenceTokenizer, tagger, disambiguator);
+  }
+  
+  @Test
+  public void testVerbImpr() throws IOException {
+    TestTools.myAssert("подальші суди",
+      "/[null]SENT_START"
+      + " подальші/[подальший]adj:p:v_kly|подальші/[подальший]adj:p:v_naz|подальші/[подальший]adj:p:v_zna:rinanim"
+      + "  /[null]null суди/[суд]noun:inanim:p:v_naz|суди/[суд]noun:inanim:p:v_zna",
+      tokenizer, sentenceTokenizer, tagger, disambiguator);
   }
 }
 

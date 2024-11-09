@@ -18,7 +18,6 @@
  */
 package org.languagetool.rules.pt;
 
-import org.jetbrains.annotations.Nullable;
 import org.languagetool.*;
 import org.languagetool.rules.RuleMatch;
 import org.languagetool.rules.SuggestedReplacement;
@@ -28,6 +27,7 @@ import org.languagetool.synthesis.pt.PortugueseSynthesizer;
 import org.languagetool.tagging.pt.PortugueseTagger;
 import org.languagetool.tools.StringTools;
 
+import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.util.*;
 import java.util.function.Predicate;
