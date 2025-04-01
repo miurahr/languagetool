@@ -9,11 +9,11 @@ repositories {
 }
 
 group = "org.omegat.lucene"
-version = "6.5-omt1.0"
+version = "6.6-omt1.0"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(17)
         vendor = JvmVendorSpec.ADOPTIUM
     }
     withSourcesJar()
