@@ -10,7 +10,7 @@ plugins {
 
 tasks.wrapper {
     distributionType = Wrapper.DistributionType.BIN
-    gradleVersion = "8.9"
+    gradleVersion = "8.13"
 }
 
 val ossrhUsername: String? by project
@@ -46,7 +46,7 @@ dependencies {
 reporting {
     reports {
         val aggregateTestReport by creating(AggregateTestReport::class) {
-            testType = TestSuiteType.UNIT_TEST
+            // testType = TestSuiteType.UNIT_TEST
             setGroup("verification")
 
             // Add the test tasks from subprojects
