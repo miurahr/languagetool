@@ -46,17 +46,10 @@ dependencies {
 reporting {
     reports {
         val aggregateTestReport by creating(AggregateTestReport::class) {
-            // testType = TestSuiteType.UNIT_TEST
+            testSuiteName = "test"
             setGroup("verification")
-
-            // Add the test tasks from subprojects
-            subprojects {
-                val testTasks = tasks.withType<Test>()
-                testTasks.configureEach {
-                    ignoreFailures = true
-                }
-            }
         }
+        tasks.getByPath("check").dependsOn(aggregateTestReport)
     }
 }
 
