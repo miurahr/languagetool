@@ -4,6 +4,9 @@ plugins {
     jacoco
 }
 
+group="org.omegat.lucene"
+version="6.5-omt2.0"
+
 repositories {
     mavenCentral()
 }
