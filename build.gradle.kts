@@ -7,6 +7,11 @@ plugins {
     alias(libs.plugins.nexus.publish)
 }
 
+val projectGroup: String by project
+val projectVersion: String by project
+
+group = projectGroup
+version = projectVersion
 
 tasks.wrapper {
     distributionType = Wrapper.DistributionType.BIN
@@ -15,7 +20,6 @@ tasks.wrapper {
 
 val ossrhUsername: String? by project
 val ossrhPassword: String? by project
-
 nexusPublishing.repositories {
     sonatype {
         nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
@@ -46,9 +50,6 @@ dependencies {
 reporting {
     reports {
         val aggregateTestReport by creating(AggregateTestReport::class) {
-            setGroup("verification")
-
-            // Add the test tasks from subprojects
             subprojects {
                 val testTasks = tasks.withType<Test>()
                 testTasks.configureEach {

@@ -3,14 +3,15 @@ plugins {
     `maven-publish`
     jacoco
 }
+val projectGroup: String by project
+val projectVersion: String by project
 
-group="org.omegat.lucene"
-version="6.5-omt2.0"
+group = projectGroup
+version = projectVersion
 
 repositories {
     mavenCentral()
 }
-
 
 java {
     toolchain {
@@ -24,13 +25,38 @@ java {
 publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+        pom {
+            name.set((project.findProperty("pomName") as String?) ?: project.name)
+            description.set("languagetool library")
+            url.set("https://github.com/miurahr/languagetool/")
+            licenses {
+                license {
+                    name.set("GNU Lesser General Public License, Version 2.1 or later (LGPL-2.1+)")
+                    url.set("https://www.gnu.org/licenses/lgpl-2.1.html")
+                    distribution.set("repo")
+                }
+            }
+
+            developers {
+                developer {
+                    id.set("miurahr")
+                    name.set("Hiroshi Miura")
+                    email.set("miurahr@linux.com")
+                }
+            }
+
+            scm {
+                connection.set("scm:git:git://github.com/miurahr/languagetool.git")
+                developerConnection.set("scm:git:ssh://github.com/miurahr/languagetool.git")
+                url.set("https://github.com/miurahr/languagetool/")
+            }
+        }
     }
 }
 
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
     options.compilerArgs = listOf("-Xlint:none")
-    // options.compilerArgs = listOf("-XDenableSunApiLintControl", "-Xlint:all",  "-Werror", "-Xlint:-sunapi")
 }
 
 tasks.withType<Javadoc>() {
