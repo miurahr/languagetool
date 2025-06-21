@@ -2,7 +2,9 @@ plugins {
     `java-library`
     `maven-publish`
     jacoco
+    signing
 }
+
 val projectGroup: String by project
 val projectVersion: String by project
 
@@ -23,7 +25,7 @@ java {
 }
 
 publishing {
-    publications.create<MavenPublication>("maven") {
+    publications.create<MavenPublication>("mavenJava") {
         from(components["java"])
         pom {
             name.set((project.findProperty("pomName") as String?) ?: project.name)
@@ -52,6 +54,22 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    if (project.hasProperty("signingKey")) {
+        val signingKey: String? by project
+        val signingPassword: String? by project
+        useInMemoryPgpKeys(signingKey, signingPassword)
+    } else {
+        useGpgCmd()
+    }
+    sign(publishing.publications["mavenJava"])
+}
+
+tasks.withType<Sign> {
+    val hasKey = project.hasProperty("signingKey") || project.hasProperty("signing.gnupg.keyName")
+    onlyIf { hasKey && !project.version.toString().endsWith("-SNAPSHOT") }
 }
 
 tasks.withType<JavaCompile>() {
