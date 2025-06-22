@@ -6,6 +6,7 @@
 trigger:
 - omegat-6.3
 - omegat-6.5
+- topic/*
 
 pool:
   vmImage: ubuntu-latest
@@ -18,5 +19,5 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
+    jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
